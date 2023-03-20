@@ -1,2 +1,2 @@
 # Defund
-- [x] [Snapshots](/snapshots)
+- [x] [Snapshots](snapshots.md)
