@@ -1,2 +1,2 @@
 # Nolus
-- [x] [Snapshots](snapshots.dm)
+- [x] [Snapshots](snapshots.md)
