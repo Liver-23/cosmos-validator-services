@@ -1,2 +1,2 @@
-# Nolus
+# Defund
 - [x] [Snapshots](/snapshots)
