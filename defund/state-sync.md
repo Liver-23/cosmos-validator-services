@@ -1,4 +1,4 @@
-# Defund doesn't support State-Sync if nothing was changed recently. It is better to use snapshot => 
+# Defund doesn't support State-Sync if nothing was changed recently. It is better to use snapshot => [Snapshots](https://github.com/Liver-23/validator_services/blob/main/defund/snapshots.md)
 # Insctructions
 ## Stop the service and reset the data
 ```
