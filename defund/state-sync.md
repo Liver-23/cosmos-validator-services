@@ -1,3 +1,4 @@
+# Defund doesn't support State-Sync if nothing was changed recently. It is better to use snapshot => 
 # Insctructions
 ## Stop the service and reset the data
 ```
