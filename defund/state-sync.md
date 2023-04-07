@@ -3,7 +3,7 @@
 ```
 sudo systemctl stop defundd
 cp $HOME/.defund/data/priv_validator_state.json $HOME/.defund/priv_validator_state.json.backup
-rm -rf $HOME/.defund/data
+defundd tendermint unsafe-reset-all --home $HOME/.defund --keep-addr-book
 ```
 ## Get and configure the state sync information
 ```
@@ -12,6 +12,8 @@ STATE_SYNC_PEER=b8f0bee92d7b87ec4b9abf15888fefb6d2e07092@142.44.143.93:24656
 LATEST_HEIGHT=$(curl -s $STATE_SYNC_RPC/block | jq -r .result.block.header.height)
 SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 1000))
 SYNC_BLOCK_HASH=$(curl -s "$STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT" | jq -r .result.block_id.hash)
+
+echo $LATEST_HEIGHT $SYNC_BLOCK_HEIGHT $SYNC_BLOCK_HASH
 
 sed -i \
   -e "s|^enable *=.*|enable = true|" \
