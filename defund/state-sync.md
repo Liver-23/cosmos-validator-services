@@ -21,7 +21,7 @@ sed -i \
   -e "s|^persistent_peers *=.*|persistent_peers = \"$STATE_SYNC_PEER\"|" \
   $HOME/.defund/config/config.toml
 
-mv $HOME/.defund/priv_validator_state.json.backup $HOME/.defund/data/priv_validator_state.json
+mkdir -p $HOME/.defund/data && mv priv_validator_state.json.backup $HOME/.defund/data/priv_validator_state.json
 ```
 ## Restart the service and check the log
 ```
