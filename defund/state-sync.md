@@ -7,10 +7,10 @@ defundd tendermint unsafe-reset-all --home $HOME/.defund --keep-addr-book
 ```
 ## Get and configure the state sync information
 ```
-STATE_SYNC_RPC=http://142.44.143.93:24657
-STATE_SYNC_PEER=b8f0bee92d7b87ec4b9abf15888fefb6d2e07092@142.44.143.93:24656
+STATE_SYNC_RPC=http://23.88.5.169:23657
+STATE_SYNC_PEER=020abb71537ac87559814e1cb85cbd837046e836@23.88.5.169:23656
 LATEST_HEIGHT=$(curl -s $STATE_SYNC_RPC/block | jq -r .result.block.header.height)
-SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 1000))
+SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 2000))
 SYNC_BLOCK_HASH=$(curl -s "$STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
 echo $LATEST_HEIGHT $SYNC_BLOCK_HEIGHT $SYNC_BLOCK_HASH
@@ -23,7 +23,7 @@ sed -i \
   -e "s|^persistent_peers *=.*|persistent_peers = \"$STATE_SYNC_PEER\"|" \
   $HOME/.defund/config/config.toml
 
-mkdir -p $HOME/.defund/data && mv priv_validator_state.json.backup $HOME/.defund/data/priv_validator_state.json
+mkdir -p $HOME/.defund/data && mv $HOME/.defund/priv_validator_state.json.backup $HOME/.defund/data/priv_validator_state.json
 ```
 ## Restart the service and check the log
 ```
