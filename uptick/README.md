@@ -1,2 +1,2 @@
-# Nolus
+# Uptick
 - [x] [Snapshots](snapshots.md)
