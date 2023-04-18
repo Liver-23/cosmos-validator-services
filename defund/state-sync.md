@@ -7,8 +7,8 @@ defundd tendermint unsafe-reset-all --home $HOME/.defund --keep-addr-book
 ```
 ## Get and configure the state sync information
 ```
-STATE_SYNC_RPC=http://23.88.5.169:23657
-STATE_SYNC_PEER=020abb71537ac87559814e1cb85cbd837046e836@23.88.5.169:23656
+STATE_SYNC_RPC=http://142.132.199.236:23657
+STATE_SYNC_PEER=020abb71537ac87559814e1cb85cbd837046e836@142.132.199.236:23656
 LATEST_HEIGHT=$(curl -s $STATE_SYNC_RPC/block | jq -r .result.block.header.height)
 SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 2000))
 SYNC_BLOCK_HASH=$(curl -s "$STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT" | jq -r .result.block_id.hash)
