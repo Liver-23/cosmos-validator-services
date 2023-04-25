@@ -10,7 +10,7 @@ nolusd tendermint unsafe-reset-all --home $HOME/.nolus --keep-addr-book
 STATE_SYNC_RPC=http://23.88.5.169:21657
 STATE_SYNC_PEER=acd39ab5b00e5611df296b2e6fb4f6a44a32513f@23.88.5.169:21656
 LATEST_HEIGHT=$(curl -s $STATE_SYNC_RPC/block | jq -r .result.block.header.height)
-SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 500))
+SYNC_BLOCK_HEIGHT=$(($LATEST_HEIGHT - 300))
 SYNC_BLOCK_HASH=$(curl -s "$STATE_SYNC_RPC/block?height=$SYNC_BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
 echo $LATEST_HEIGHT $SYNC_BLOCK_HEIGHT $SYNC_BLOCK_HASH
